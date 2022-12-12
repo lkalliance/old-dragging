@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        div#container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            width: 900px;
+        }
+        div#grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("grid.png");
+            background-repeat: no-repeat;
+            height: 250px;
+            width: 8100px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="grid" style="left: 0px;">
+        </div>
+    </div>
+
+    <script>
+
+        var oClick={ move: false, strip: false, caliper: false };
+        var startMove=startX=0;
+
+        checktype=function(e) {
+            if(e.ctrlKey) oClick.strip=true;
+            else if(e.altKey) oClick.caliper=true;
+            else oClick.move=true;
+            startMove=e.clientX;
+            startX=Number(grid.style.left.replace("px",""));
+        //    console.log(startX);
+        };
+        endmove=function(e) {
+            for(var i in oClick) oClick[i]=false;
+        //    console.log("startX: "+startX);
+        }
+        whenmoved=function(e) {
+            var diff=0, nextX=0, newStyle="0px";
+            if(!oClick.move) return false;
+            diff=e.clientX-startMove;
+            nextX=startX+diff;
+           // startMove=nextX>0?e.clientX:startMove;
+            newStyle=nextX>0?"0px":nextX<-7200?"-7200px":nextX+"px";
+            grid.style.left=newStyle;
+           // console.log("newStyle: " + newStyle);
+        };
+        var grid=document.getElementById("grid");
+        grid.addEventListener("mousedown",checktype);
+        grid.addEventListener("mousemove",whenmoved);
+        grid.addEventListener("mouseup",endmove);
+
+    </script>
+
+</body>
+</html>

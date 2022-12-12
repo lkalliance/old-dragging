@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="drags.css">
+</head>
+<body>
+    <div id="outercontainer">
+        <div id="ECGtitle">
+            <p class="windowRange" id="windowStart">xxxxxxx</p>
+            <p class="windowRange" id="windowEnd">xxxxxx</p>
+        </div>
+        <div id="ecg">
+            <div id="grid" style="left: 0px;">
+                <canvas id="ecgcan" width=11250 height=235>
+                </canvas>
+            </div>
+        </div>
+
+        <div id="fullecg">
+            <div id="full1" class="full"><canvas id="ecgfull1" width=2880 height=80></canvas></div>
+            <div id="full2" class="full"><canvas id="ecgfull2" width=2880 height=80></canvas></div>
+            <div id="full3" class="full"><canvas id="ecgfull3" width=2880 height=80></canvas></div>
+        </div>
+
+        <div id="info">
+            <div id="event">
+                <a>Event</a>
+                <div>This is a tab that has information about the Event.</div>
+            </div>
+            <div id="prescription">
+                <a>Prescription</a>
+                <div>This is a tab that has information about the Prescription.</div>
+            </div>
+            <div id="patient">
+                <a>Patient</a>
+                <div>This is a tab that has information about the Patient.</div>
+            </div>
+            <div id="facility">
+                <a>Facility</a>
+                <div>This is a tab that has information about the Facility.</div>
+            </div>
+            <div id="issues">
+                <a>Issues</a>
+                <div>This is a tab that has information about Issues.</div>
+            </div>
+            <div id="report">
+                <a>Report</a>
+                <div>This is a tab that has information about the Report.</div>
+            </div>
+        </div>
+
+        <div id="directory">
+            <em>John Doe [ID]</em>
+            <ul id="dirlist">
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script src="base.js"></script>
+<script src="data.js"></script>
+<script src="ECG.js"></script>
+<script src="fullECG.js"></script>
+<script src="directory.js"></script>
+<script src="info.js"></script>
+<script>
+    var base=new main(125,32);
+    base.init({directory:document.getElementById("dirlist")});
+</script>
+
+</html>

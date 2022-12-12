@@ -1,0 +1,380 @@
+body {
+    font-family: Verdana;
+}
+div.screen {
+    opacity: .1;
+}
+div#outercontainer {
+    /* width: 1500px; */
+    width: 1250px;
+}
+
+
+/* --- MAIN ECG MODULE --- */
+
+/* ECG container */
+div#ecg {
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    /* height: 300px;
+    width: 1500px; */
+    height: 235px;
+    width: 1250px;
+    border: 1px solid green;
+    border-top: none;
+    margin: 0 0 8px 0;
+    float: right;
+}
+div#ECGtitle {
+    position: relative;
+    height: 26px;
+    /* width: 1500px; */
+    width: 1250px;
+    margin: 0;
+    float: right;
+    border: 1px solid green;
+    border-bottom: none;
+    background-color: black;
+}
+div#grid {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    /* background-image: url("grid.png");
+    height: 300px;
+    width: 13500px; */
+    background-image: url("grid2.png");
+    height: 235px;
+    width: 11250px;
+    z-index: 1;
+}
+div#ECGtitle p.windowRange {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    margin: 0 10px;
+    font-size: 11.5px;
+    height: 26px;
+    line-height: 26px;
+}
+p#windowStart {
+    text-align: left;
+    left: 0;
+}
+p#windowEnd {
+    text-align: right;
+    right: 0;
+}
+
+/* Six-second strip */
+div.strip {
+    /* width: 900px;
+    height: 280px; */
+    width: 748px;
+    height: 215px;
+    border: 1px solid yellow;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+}
+div.strip.locked {
+    border: 1px solid orange;
+}
+div.strip div.screen {
+    background-color: yellow;
+    height: 100%;
+    width: 100%;
+}
+div.strip.locked div {
+    background-color: orange;
+}
+div.strip.locked a.note {
+    background-color: orange;
+    font-size: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 2px 4px;
+    opacity: .5;
+    cursor: pointer;
+}
+div.strip a.delete,
+div.strip a.lock {
+    position: absolute;
+    top: 5px;
+    font-size: 10px;
+    padding: 2px 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+div.strip a.delete {
+    color: yellow;
+    left: 5px;
+    border: 1px solid yellow;
+}
+div.strip.locked a.delete {
+    color: orange;
+    border-color: orange;
+}
+div.strip a.lock {
+    color: green;
+    right: 5px;
+    border: 1px solid green;
+}
+div.strip.locked a.lock {
+    display: none;
+}
+
+/* Caliper */
+div.caliper {
+    /* height: 300px; */
+    height: 235px;
+    position: absolute;
+    bottom: 0;
+    border-left: 1px solid pink;
+    border-right: 1px solid pink;
+    z-index: 100;
+}
+div.caliper div.handle {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+}
+div.caliper div.handle div {
+    background-color: pink;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+div.caliper div.handle.left {
+    left: -8px;
+}
+div.caliper div.handle.right {
+    right: -8px;
+}
+div.caliper div.measurement {
+    color: pink;
+    font-size: 11px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    border-top: 2px dotted pink;
+}
+div.caliper div.measurement p {
+    padding: 0 6px;
+    margin: 6px 0 3px 0;
+    white-space: nowrap;
+}
+div.caliper a.delete {
+    position: absolute;
+    bottom: 58px;
+    font-size: 8px;
+    padding: 1px 3px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: pink;
+    right: 6px;
+    border: 1px solid pink;
+}
+
+/* Strip pop-up */
+
+
+
+/* --- FULL LENGTH STRIP --- */
+div#fullecg {
+    /* width: 1200px; */
+    width: 960px;
+    overflow: hidden;
+    float: right;
+}
+div.full {
+    /* height: 100px;
+    width: 1200px; */
+    height: 80px;
+    width: 960px;
+    margin-bottom: 3px;
+    position: relative;
+    background-color: black;
+}
+div.full canvas {
+    background-color: black;
+    position: relative;
+}
+#ecgfull2 {
+    /* left: -1200px; */
+    left: -960px;
+}
+#ecgfull3 {
+    /* left: -2400px; */
+    left: -1920px;
+}
+div.full div.viewport {
+    /* background-color: green;
+    opacity: .3; */
+    /* width: 398px;
+    height: 98px; */
+    width: 318px;
+    height: 78px;
+    position: absolute;
+    top: 0;
+    border: 1px solid red;
+}
+div.full div.strip {
+    /* width: 240px;
+    height: 100px; */
+    width: 192px;
+    height: 80px;
+    border: none;
+    background-color: yellow;
+    opacity: .15;
+}
+div.full div.strip.locked {
+    background-color: orange;
+}
+
+
+
+/* --- STRIP MENU --- */
+
+div#directory {
+    font-size: 11px;
+}
+div#directory em {
+    font-style: normal;
+    font-weight: bold;
+}
+div#directory .hide li,
+div#directory .show .hide li {
+    display: none;
+}
+div#directory .show li,
+div#directory .hide .show li {
+    display: block;
+}
+div#directory ul {
+    list-style-type: none;
+    padding-left: 0;
+    /* border-left: 1px dotted #666666; */
+    margin-left: 7px;
+    margin-top: 4px;
+}
+div#directory li ul {
+    margin-left: 22px;
+}
+div#directory li {
+    background-repeat: no-repeat;
+    margin-left: -8px;
+    margin-bottom: 4px;
+}
+div#directory a {
+    cursor: pointer;
+    background-image: url("globe.png");
+    background-repeat: no-repeat;
+    padding-left: 35px;
+    background-position: 15px 0;
+}
+div#directory a.link {
+    text-decoration: underline;
+    color: blue;
+}
+div#directory a.link.selected {
+    cursor: default;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+div#directory li.show {
+    background-image: url("minus.png");
+}
+div#directory li.hide {
+    background-image: url("plus.png");
+}
+
+
+
+
+/* --- TABBED INFO --- */
+
+/* General tabset rules */
+
+div.tabset {
+    position: relative;
+    font-size: 11px;
+}
+div.tabset a {
+    float: left;
+    text-transform: uppercase;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 6px;
+    border: 1px solid #888888;
+    margin-right: 2px;
+    background-color: #bbbbbb;
+    position: relative;
+    cursor: pointer;
+    font-size: 9px;
+}
+div.tabset .active a {
+    opacity: 1;
+    height: 25px;
+    border-bottom: 0;
+    background-color: #888888;
+    z-index: 10;
+    color: white;
+    cursor: default;
+}
+div.tabset div.content {
+    display: none;
+    position: absolute;
+    top: 26px;
+    left: 0px;
+    background-color: #888888;
+}
+div.tabset .active div.content {
+    display: block;
+}
+
+
+/* For info tabset on ECG page */
+
+div#info {
+    float: right;
+    width: 960px;
+    margin-top: 6px;
+}
+div#info div.content {
+    width: 944px;
+    padding: 8px;
+}
+
+
+
+/*--- POPUPS ---*/
+
+div.popup {
+    background-color: #dddddd;
+    position: absolute;
+    z-index: 10;
+    padding: 6px;
+    border: 2px solid #aaaaaa;
+}
+div.popup label,
+div.popup textarea {
+    display: block;
+}
+div.popup label {
+    font-size: 11px;
+    font-weight: bold;
+}
+div.popup button {
+    float: right;
+    margin-top: 4px;
+}
+
